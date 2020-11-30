@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.78.1">
+    <title>Index</title>
+
+
+
+    <!-- Favicon -->
+    <link rel="shortcut icon">
+    <!-- Bootstrap core CSS -->
+    <link rel="canonical" href="https://v5.getbootstrap.com/docs/5.0/examples/offcanvas/">
+    <link href="assets/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="offcanvas.css" rel="stylesheet">
+    <!-- include only the Firebase features as you need -->
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+
+  </head>
+
+  <body class="bg-light" tyle="word-break:keep-all">
+    <!-- ========== HEADER ========== -->
+    <header>
+      <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark" aria-label="Main navigation">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="index.html">게시판</a>
+          <button class="navbar-toggler p-0 border-0" type="button" data-toggle="offcanvas" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="navbar-collapse offcanvas-collapse" id="navbarsExampleDefault">
+            <form class="d-flex">
+              <input class="form-control mr-2" type="search" placeholder="Search (not ready)" aria-label="Search">
+              <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+          </div>
+        </div>
+      </nav>
+      <div class="nav-scroller bg-white shadow-sm">
+        <nav class="nav nav-underline" aria-label="Secondary navigation">
+          <a class="nav-link active" aria-current="page" href="#">전체 보기</a>
+        </nav>
+      </div>
+    </header>
+    <!-- ========== END HEADER ========== -->
+    <!-- ========== MAIN ========== -->
+    <main class="container">
+      <div class="d-flex align-items-center p-3 my-3 text-white bg-purple rounded shadow-sm">
+        <img class="mr-3" src="assets/brand/bootstrap-logo-white.svg" alt="" width="48" height="38">
+        <div class="lh-1">
+          <h1 class="h6 mb-0 text-white lh-1">eddie</h1>
+          <small>2020 1st dashboard</small>
+        </div>
+      </div>
+
+      <section class="my-3 p-3 bg-white rounded d-block shadow-sm">
+        <h6 class="border-bottom pb-2 mb-0">최근</h6>
+        <div class="col d-flex border-bottom text-muted d-inline-block pt-3">
+          <ul class="list-unstyled col row d-inline-flex row" id="data_list">
+              <li class="col">#</li>
+              <li class="col">ID</li>
+              <li class="col">머리말</li>
+              <li class="col">제목</li>
+              <li class="col">email</li>
+              <li class="col">내용</li>
+              <li class="col">yy.mm.dd</li>
+          </ul>
+      </div>
+
+        <div class="row col  justify-content-between mt-3">
+            <a class="col" href="write.html">글쓰기</a>
+            <a class="col" href="test1.ejs">test</a>
+            <a class="col text-right" href="index.html">모두 업데이트</a>
+        </div>
+      </section>
+    </main>
+    <!-- ========== END MAIN ========== -->
+
+    <!-- JS Global Compulsory -->
+    <script src="assets/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-firestore.js"></script>
+  <!-- IE Support -->
+    <script>
+      var firebaseConfig = {
+        apiKey: "AIzaSyDU2-mdRegFPE0hj8Fo2ZTQnQSfU6LXrd0",
+        authDomain: "web-eddie.firebaseapp.com",
+        databaseURL: "https://web-eddie.firebaseio.com",
+        projectId: "web-eddie",
+        storageBucket: "web-eddie.appspot.com",
+        messagingSenderId: "855618318554",
+        appId: "1:855618318554:web:ead6bb324b6874746675e3",
+        measurementId: "G-SHJGKSL03G"
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+      var database = firebase.database();
+
+      // Get a reference to the database service
+      import * as firebase from 'firebase/app';
+      import 'firebase/auth';
+      import 'firebase/firestore';
+
+      var init = firebase.initializeApp({
+          apiKey: "만든키",
+          authDomain: "만든도메인",
+          databaseURL: "만든주소",
+          projectId: "아이디0",
+          storageBucket: "만든버킷저장소",
+          messagingSenderId: "아이디1",
+          appId: "아이디2",
+          measurementId: "아이디3"
+      });
+
+      var db = init.firestore();  //위 설정대로 저장소에 접속합니다.
+      let ref = db.collection('board');
+      ref.doc().set( { name: 'HELLO', booleans: false, numbers: 860000 } );
+
+
+
+
+      // 구글 인증 기능 추가
+      var provider = new firebase.auth.GoogleAuthProvider();
+
+      // 인증하기
+      firebase.auth().signInWithPopup(provider).then(function(result) {
+        // This gives you a Google Access Token. You can use it to access the Google API.
+        var token = result.credential.accessToken;
+        // The signed-in user info.
+        var user = result.user;
+
+        console.log(user)		// 인증 후 어떤 데이터를 받아오는지 확인해보기 위함.
+      // ...
+      }).catch(function(error) {
+        // Handle Errors here.
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        // The email of the user's account used.
+        var email = error.email;
+        // The firebase.auth.AuthCredential type that was used.
+        var credential = error.credential;
+        // ...
+      });
+
+
+    </script>
+      <script>
+        if (/MSIE \d|Trident.*rv:/.test(navigator.userAgent)) document.write('<script src="assets/vendor/polifills.js"><\/script>');
+      </script>
+  </body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+  <head>
+  <meta charset="UTF-8">
+  <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-firestore.js"></script>
+  </head>
+  <h1>Firebase Test</h1>
+  <p>Firebase console에 데이터가 추가 되었는지 확인하세요</p>
+<script>
+  // Initialize Firebase
+  var firebaseConfig = {
+    apiKey: "AIzaSyDU2-mdRegFPE0hj8Fo2ZTQnQSfU6LXrd0",
+    authDomain: "web-eddie.firebaseapp.com",
+    databaseURL: "https://web-eddie.firebaseio.com",
+    projectId: "web-eddie",
+    storageBucket: "web-eddie.appspot.com",
+    messagingSenderId: "855618318554",
+    appId: "1:855618318554:web:ead6bb324b6874746675e3",
+    measurementId: "G-SHJGKSL03G"
+    };
+  firebase.initializeApp(config);
+  var newPostKey = firebase.database().ref().child('posts').push().key;
+
+  var postData = {
+    Counter: newPostKey,
+    name:"홍길동",
+    choice:"잡담",
+    title:"제목",
+    email:"이메일",
+    description:"게시물 내용",
+    brddate: Date.now()
+  };
+
+  var updates = {};
+  updates['/board/' + newPostKey] = postData;
+
+  firebase.database().ref().update(updates);
+
+</script>
