@@ -13,31 +13,13 @@
     <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-analytics.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-firestore.js"></script>
 
-
     <!-- Favicon -->
-    <link rel="shortcut icon">
     <!-- Bootstrap core CSS -->
     <link rel="canonical" href="https://v5.getbootstrap.com/docs/5.0/examples/offcanvas/">
     <link href="assets/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom styles for this template -->
     <link href="offcanvas.css" rel="stylesheet">
     <!-- include only the Firebase features as you need -->
-    <style>
-      .bd-placeholder-img {
-        font-size: 1.125rem;
-        text-anchor: middle;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        user-select: none;
-      }
-
-      @media (min-width: 768px) {
-        .bd-placeholder-img-lg {
-          font-size: 3.5rem;
-        }
-      }
-    </style>
-
   </head>
 
   <body class="bg-light" tyle="word-break:keep-all">
@@ -86,25 +68,28 @@
               <li class="col">내용</li>
               <li class="col">yy.mm.dd</li>
           </ul>
+          <ul class="list-unstyled col row d-inline-flex row" id="boarddb">
+
+        </ul>
       </div>
 
         <div class="row col  justify-content-between mt-3">
             <a class="col" href="write.html">글쓰기</a>
-            <a class="col" href="test1.ejs">test</a>
             <a class="col text-right" href="index.html">모두 업데이트</a>
         </div>
       </section>
 
-      <p id="test">test</p>
+      <p id="test">test :</p>
       <input type="textfield" id="test1">
       <button id ="savebutton">save</button>
-      <script src="app.js"></script>
+      <button id ="loadbutton">load</button>
     </main>
     <!-- ========== END MAIN ========== -->
 
     <!-- JS Global Compulsory -->
-
     <script src="assets/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="app.js"></script>
+    <script src="load.js"></script>
   <!-- IE Support -->
       <script>
         if (/MSIE \d|Trident.*rv:/.test(navigator.userAgent)) document.write('<script src="assets/vendor/polifills.js"><\/script>');

@@ -13,21 +13,5 @@
       // Initialize Firebase
       firebase.initializeApp(firebaseConfig);
       firebase.analytics();
-      var firestore = firebase.firestore();
-
+      const firestore = firebase.firestore();
       const docref =firestore.doc("samples/testdata");
-      const outputheader = document.querySelector("#test");
-      const inputTextField = document.querySelector("#test1");
-      const savebutton = document.querySelector("#savebutton");
-
-      savebutton.addEventListener("click", function() {
-          const textToSave = inputTextField.value;
-          console.log("I am going to save " + textToSave + " to Firestore");
-          docref.set({
-            test1: textToSave
-          }).then(function() {
-              console.log("status saved!");
-          }).catch(function (error) {
-              console.log("got an error:", error);
-          });
-      } )
