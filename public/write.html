@@ -3,6 +3,12 @@
   <head>
     <!-- Title -->
     <title>함께하기</title>
+    <!-- firebase -->
+    <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-firestore.js"></script>
+
     <!-- Required Meta Tags Always Come First -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -71,7 +77,7 @@
             <!-- Input -->
             <div class="js-form-message my-3">
               <label class="input-label ">제목</label>
-              <input type="email" id="title" class="form-control" name="title" placeholder="제목" aria-label="Title" required="" data-msg="제목을 기입해 주세요">
+              <input type="text" id="title" class="form-control" name="title" placeholder="제목" aria-label="Title" required="" data-msg="제목을 기입해 주세요">
             </div>
             <!-- End Input -->
 
@@ -98,7 +104,7 @@
 
             <div class="text-center">
               <div class="mb-2">
-                <button type="submit" class="btn btn-primary" id="summit">제출하기</button>
+                <button type="submit" class="btn btn-primary" id="submit">제출하기</button>
               </div>
             </div>
           </div>
@@ -115,12 +121,8 @@
 
     <!-- JS Global Compulsory -->
     <script src="assets/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="offcanvas.js"></script>
     <script src="write.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-analytics.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-firestore.js"></script>
+
 
     <!-- IE Support -->
     <script>

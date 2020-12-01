@@ -7,7 +7,11 @@
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.78.1">
     <title>Index</title>
-
+    <!-- firebase -->
+    <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-firestore.js"></script>
 
 
     <!-- Favicon -->
@@ -70,7 +74,7 @@
         </div>
       </div>
 
-      <section class="my-3 p-3 bg-white rounded d-block shadow-sm">
+      <section class=" my-3 p-3 bg-white rounded d-block shadow-sm">
         <h6 class="border-bottom pb-2 mb-0">최근</h6>
         <div class="col d-flex border-bottom text-muted d-inline-block pt-3">
           <ul class="list-unstyled col row d-inline-flex row" id="data_list">
@@ -90,79 +94,18 @@
             <a class="col text-right" href="index.html">모두 업데이트</a>
         </div>
       </section>
+
+      <p id="test">test</p>
+      <input type="textfield" id="test1">
+      <button id ="savebutton">save</button>
+      <script src="app.js"></script>
     </main>
     <!-- ========== END MAIN ========== -->
 
     <!-- JS Global Compulsory -->
+
     <script src="assets/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-analytics.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-firestore.js"></script>
   <!-- IE Support -->
-    <script>
-      var firebaseConfig = {
-        apiKey: "AIzaSyDU2-mdRegFPE0hj8Fo2ZTQnQSfU6LXrd0",
-        authDomain: "web-eddie.firebaseapp.com",
-        databaseURL: "https://web-eddie.firebaseio.com",
-        projectId: "web-eddie",
-        storageBucket: "web-eddie.appspot.com",
-        messagingSenderId: "855618318554",
-        appId: "1:855618318554:web:ead6bb324b6874746675e3",
-        measurementId: "G-SHJGKSL03G"
-      };
-      // Initialize Firebase
-      firebase.initializeApp(firebaseConfig);
-      var database = firebase.database();
-
-      // Get a reference to the database service
-      import * as firebase from 'firebase/app';
-      import 'firebase/auth';
-      import 'firebase/firestore';
-
-      var init = firebase.initializeApp({
-          apiKey: "만든키",
-          authDomain: "만든도메인",
-          databaseURL: "만든주소",
-          projectId: "아이디0",
-          storageBucket: "만든버킷저장소",
-          messagingSenderId: "아이디1",
-          appId: "아이디2",
-          measurementId: "아이디3"
-      });
-
-      var db = init.firestore();  //위 설정대로 저장소에 접속합니다.
-      let ref = db.collection('board');
-      ref.doc().set( { name: 'HELLO', booleans: false, numbers: 860000 } );
-
-
-
-
-      // 구글 인증 기능 추가
-      var provider = new firebase.auth.GoogleAuthProvider();
-
-      // 인증하기
-      firebase.auth().signInWithPopup(provider).then(function(result) {
-        // This gives you a Google Access Token. You can use it to access the Google API.
-        var token = result.credential.accessToken;
-        // The signed-in user info.
-        var user = result.user;
-
-        console.log(user)		// 인증 후 어떤 데이터를 받아오는지 확인해보기 위함.
-      // ...
-      }).catch(function(error) {
-        // Handle Errors here.
-        var errorCode = error.code;
-        var errorMessage = error.message;
-        // The email of the user's account used.
-        var email = error.email;
-        // The firebase.auth.AuthCredential type that was used.
-        var credential = error.credential;
-        // ...
-      });
-
-
-    </script>
       <script>
         if (/MSIE \d|Trident.*rv:/.test(navigator.userAgent)) document.write('<script src="assets/vendor/polifills.js"><\/script>');
       </script>

@@ -1,112 +1,36 @@
-//variable
-let imageUrl = null;
+var firebaseConfig = {
+    apiKey: "AIzaSyDU2-mdRegFPE0hj8Fo2ZTQnQSfU6LXrd0",
+    authDomain: "web-eddie.firebaseapp.com",
+    databaseURL: "https://web-eddie.firebaseio.com",
+    projectId: "web-eddie",
+    storageBucket: "web-eddie.appspot.com",
+    messagingSenderId: "855618318554",
+    appId: "1:855618318554:web:0bf1d3df5e3b25356675e3",
+    measurementId: "G-VFFF25V6F1"
+  };
 
-//layout binding
-const inputname = $("#nameid");
-const inputChoice = $("#choice");
-const inputTitle = $("#title");
-const inputEmail = $("#email");
-const inputDescription = $("#description");
-const inputFile = $("#file");
-const summitButton = $("#summit");
-const progressStatus = $("#progress");
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+  var firestore = firebase.firestore();
 
-const contactReference = db.collection("contact");
-const dataId = "";
+  const docref =firestore.doc("samples/testdata");
+  const inputText1= document.querySelector("#nameid");
+  const inputText2 = document.querySelector("#title");
+  const inputemail = document.querySelector("#email");
+  const inputText3 = document.querySelector("#description");
+  const submitbutton = document.querySelector("#submit");
 
-const companyReference = db.collection("company");
-const newsReference = db.collection("notice");
-
-const bizMenu = $("#biz_menu");
-const bizMenuFooter = $("#biz_menu_footer");
-const newsList = $("#news_list");
-
-$(document).on('ready', function () {
-
-    inputFile.on("change", (e)=>{
-
-        const file = inputFile[0].files[0];
-        console.log(file);
-
-        let storageRef = storage.ref();
-        let imageRef = storageRef.child("files");
-
-        let spaceRef = imageRef.child(file.name);
-        let uploadTask = spaceRef.put(file);
-
-        uploadTask.on("state_changed", function(snapShot){
-
-            let progress = (snapShot.bytesTransferred/ snapShot.totalBytes) * 100;
-            console.log(progress);
-            progressStatus.text(Number(progress)+"%");
-            if(Number(progress) == 100){
-                progressStatus.text("완료");
-            }
-
-            switch (snapShot.state){
-                case firebase.storage.TaskState.PAUSED:
-                    console.log("upload paused");
-                    break;
-                case firebase.storage.TaskState.RUNNUNG:
-                    console.log("ruung");
-                    break;
-            }
-
-        },function(error){
-            console.log(error);
-        }, function(){
-            console.log("make url");
-            uploadTask.snapshot.ref.getDownloadURL().then(function(downloadUrl){
-                console.log(downloadUrl);
-                imageUrl = downloadUrl;
-            }).catch(function(error){
-                console.log(error);
-            })
-        })
-
-    })
-
-    summitButton.on("click", ()=>{
-
-        const nameid = inputNameid.val();
-        const choice = inputChoice.val();
-        const title = inputtitle.val();
-        const email = inputEmail.val();
-        const description = inputDescription.val();
-        const file = inputFile[0]
-
-        let saveData = {
-            nameid:name,
-            choice:choice,
-            title:title,
-            email:email,
-            description:description,
-            status:true,
-            open_flag:true,
-            createdAt:firebase.firestore.FieldValue.serverTimestamp(),
-            updatedAt:firebase.firestore.FieldValue.serverTimestamp()
-        }
-
-        console.log(saveData);
-
-        if(imageUrl != null){
-            saveData["file"] = imageUrl;
-        }
-
-        const document = contactReference.doc();
-        document.set(saveData).then((snapshot)=>{
-            console.log(snapshot);
-            alert("완료");
-            location.reload();
-        }).catch((error)=>{
-            console.log(error);
-            alert("Error.")
-        })
-
-    })
-
-    makeMenuAndFooter();
-    makeNewsList();
+  submitbutton.addEventListener("click", function() {
+    const textToSave = inputText1.value; inputText2.value; inputText3.value; inputemail.value;
+    console.log("I am going to save " + textToSave + " to Firestore");
+    docref.set({
+      test1: textToSave
+    }).then(function() {
+        console.log("status saved!");
+    }).catch(function (error) {
+        console.log("got an error:", error);
+    });
+} )
 
 
-})
