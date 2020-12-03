@@ -12,8 +12,7 @@
     <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-analytics.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-firestore.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/ui/4.7.1/firebase-ui-auth__ko.js"></script>
-
+    <script src="https://www.gstatic.com/firebasejs/ui/4.7.1/firebase-ui-auth.js"></script>
 
     <!-- Favicon -->
     <link rel="shortcut icon">
@@ -60,40 +59,15 @@
           <small>2020 1st dashboard</small>
         </div>
       </div>
-      <a class="col-2 btn btn-primary" href="login.html">로그인</a>
-      <a class="col-2 btn btn-primary" href="mypage.html">내 페이지</a>
-      <section class="my-3 p-3 bg-white rounded d-block shadow-sm">
-        <h6 class="border-bottom pb-2 mb-0">최근</h6>
-        <div class="col d-flex border-bottom text-muted d-inline-block pt-3">
-          <ul class="list-unstyled col row d-inline-flex row" id="data_list">
-              <li class="col">#</li>
-              <li class="col">ID</li>
-              <li class="col">머리말</li>
-              <li class="col">제목</li>
-              <li class="col">email</li>
-              <li class="col">내용</li>
-              <li class="col">yy.mm.dd</li>
-          </ul>
-          <ul class="list-unstyled col row d-inline-flex row" id="boarddb">
-
-        </ul>
-      </div>
-
-        <div class="row col  justify-content-between mt-3">
-            <a class="col-2 btn btn-primary" href="write.html">글쓰기</a>
-            <a class="col-2 btn btn-primary" href="index.html">모두 업데이트</a>
-        </div>
-      </section>
-
-      <p id="test">test :</p>
-      <input type="textfield" id="test1">
-      <button id ="savebutton">save</button>
-      <button id ="loadbutton">load</button>
+      <div id="firebaseui-auth-container"></div>
     </main>
     <!-- ========== END MAIN ========== -->
 
     <!-- JS Global Compulsory -->
     <script src="assets/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+    </script>
   <!-- IE Support -->
       <script>
         if (/MSIE \d|Trident.*rv:/.test(navigator.userAgent)) document.write('<script src="assets/vendor/polifills.js"><\/script>');

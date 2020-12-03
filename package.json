@@ -1,6 +1,7 @@
 {
   "dependencies": {
-    "bootstrap-vue": "^2.1.0"
+    "bootstrap-vue": "^2.1.0",
+    "firebaseui": "^4.7.1"
   },
   "devDependencies": {
     "@babel/polyfill": "^7.7.0",
