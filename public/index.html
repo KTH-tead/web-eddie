@@ -15,7 +15,6 @@
 
 
     <!-- Favicon -->
-    <link rel="shortcut icon">
     <!-- Bootstrap core CSS -->
     <link rel="canonical" href="https://v5.getbootstrap.com/docs/5.0/examples/offcanvas/">
     <link href="assets/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -74,7 +73,7 @@
         </div>
       </div>
 
-      <section class=" my-3 p-3 bg-white rounded d-block shadow-sm">
+      <section class="d-none my-3 p-3 bg-white rounded d-block shadow-sm">
         <h6 class="border-bottom pb-2 mb-0">최근</h6>
         <div class="col d-flex border-bottom text-muted d-inline-block pt-3">
           <ul class="list-unstyled col row d-inline-flex row" id="data_list">
@@ -90,14 +89,14 @@
 
         <div class="row col  justify-content-between mt-3">
             <a class="col" href="write.html">글쓰기</a>
-            <a class="col" href="test1.ejs">test</a>
-            <a class="col text-right" href="index.html">모두 업데이트</a>
+            <button id="loadbutton" class="col text-right">모두 업데이트</button>
         </div>
       </section>
 
-      <p id="test">test</p>
+      <p id="test">test:</p>
       <input type="textfield" id="test1">
       <button id ="savebutton">save</button>
+      <button id ="loadbutton">load</button>
       <script src="app.js"></script>
     </main>
     <!-- ========== END MAIN ========== -->

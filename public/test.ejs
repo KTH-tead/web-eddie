@@ -18,21 +18,4 @@
     measurementId: "G-SHJGKSL03G"
     };
   firebase.initializeApp(config);
-  var newPostKey = firebase.database().ref().child('posts').push().key;
 
-  var postData = {
-    Counter: newPostKey,
-    name:"홍길동",
-    choice:"잡담",
-    title:"제목",
-    email:"이메일",
-    description:"게시물 내용",
-    brddate: Date.now()
-  };
-
-  var updates = {};
-  updates['/board/' + newPostKey] = postData;
-
-  firebase.database().ref().update(updates);
-
-</script>

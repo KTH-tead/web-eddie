@@ -19,6 +19,7 @@
       const outputheader = document.querySelector("#test");
       const inputTextField = document.querySelector("#test1");
       const savebutton = document.querySelector("#savebutton");
+      const loadbutton = document.querySelector("#loadbutton");
 
       savebutton.addEventListener("click", function() {
           const textToSave = inputTextField.value;
@@ -31,3 +32,15 @@
               console.log("got an error:", error);
           });
       } )
+
+      loadbutton.addEventListener("click", function() {
+        docRef.get().then(function (doc) {
+          if (doc && doc.exists) {
+            const myData = doc.data();
+            outputheader.innerText = "test: " + myData.test1;
+          }
+        }).catch(function (error) {
+          console.log("got an error: ", error);
+        });
+      });
+
