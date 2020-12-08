@@ -45,30 +45,6 @@ var uiConfig = {
   privacyPolicyUrl: '<your-privacy-policy-url>'
 };
 
-<<<<<<< HEAD
-      // Initialize Firebase
-      firebase.initializeApp(firebaseConfig);
-      firebase.analytics();
-      var firestore = firebase.firestore();
-
-      const docref =firestore.doc("samples/testdata");
-      const outputheader = document.querySelector("#test");
-      const inputTextField = document.querySelector("#test1");
-      const savebutton = document.querySelector("#savebutton");
-      const loadbutton = document.querySelector("#loadbutton");
-
-      savebutton.addEventListener("click", function() {
-          const textToSave = inputTextField.value;
-          console.log("I am going to save " + textToSave + " to Firestore");
-          docref.set({
-            test1: textToSave
-          }).then(function() {
-              console.log("status saved!");
-          }).catch(function (error) {
-              console.log("got an error:", error);
-          });
-      } )
-
       loadbutton.addEventListener("click", function() {
         docRef.get().then(function (doc) {
           if (doc && doc.exists) {
@@ -80,9 +56,7 @@ var uiConfig = {
         });
       });
 
-=======
 // Initialize the FirebaseUI Widget using Firebase.
 var ui = new firebaseui.auth.AuthUI(firebase.auth());
 // The start method will wait until the DOM is loaded.
 ui.start('#firebaseui-auth-container', uiConfig);
->>>>>>> 3f321096d1098210921b7a8cd27e6048efed0984
