@@ -46,3 +46,18 @@ var uiConfig = {
 };
 
 
+      loadbutton.addEventListener("click", function() {
+        docRef.get().then(function (doc) {
+          if (doc && doc.exists) {
+            const myData = doc.data();
+            outputheader.innerText = "test: " + myData.test1;
+          }
+        }).catch(function (error) {
+          console.log("got an error: ", error);
+        });
+      });
+
+// Initialize the FirebaseUI Widget using Firebase.
+var ui = new firebaseui.auth.AuthUI(firebase.auth());
+// The start method will wait until the DOM is loaded.
+ui.start('#firebaseui-auth-container', uiConfig);
