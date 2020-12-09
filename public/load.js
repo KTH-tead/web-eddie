@@ -1,3 +1,4 @@
+      const firestore = firebase.firestore();
       const nameiddb= document.querySelector("#nameid");
       const choicedb= document.querySelector("#choice");
       const titledb = document.querySelector("#title");
