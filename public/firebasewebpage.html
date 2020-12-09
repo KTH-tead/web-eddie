@@ -3,23 +3,16 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="generator" content="Hugo 0.78.1">
-    <title>Index</title>
-        <!-- Favicon -->
+    <title>webpagetest1</title>
+    <!-- Favicon -->
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" type="text/css" href="assets/dist/css/bootstrap.min.css" >
     <link rel="stylesheet" type="text/css"  href="https://www.gstatic.com/firebasejs/ui/4.7.1/firebase-ui-auth.css" />
     <!-- Custom styles for this template -->
     <link href="offcanvas.css" rel="stylesheet">
-    <!-- firebase -->
-    <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-analytics.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-firestore.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/ui/4.7.1/firebase-ui-auth__ko.js"></script>
   </head>
 
-  <body >
+  <body class="bg-light">
     <!-- ========== HEADER ========== -->
     <header>
       <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark" aria-label="Main navigation">
@@ -52,20 +45,33 @@
           <small>2020 1st dashboard</small>
         </div>
       </div>
-      <div class="col">
-        <a class="col-3 btn btn-primary" href="firebasewebpage.html">(firebase) 웹페이지 만들기 [실패]</a>
-        <a class="col-3 btn btn-primary" href="firestorewebpage.html">(firestore) 웹페이지 만들기 - 내용 정리 안됨.</a>
-        <a class="col-3 btn btn-primary" href="write.html">(firestore) 많은 데이터 기입 페이지 - 내용 정리 안됨.</a>
-        <a class="d-none col-2 btn btn-primary" href="login.html">로그인</a>
-        <a class="d-none col-2 btn btn-primary" href="mypage.html">내 페이지</a>
+      <div>
+        <hi class="bigOne"></hi>
       </div>
     </main>
     <!-- ========== END MAIN ========== -->
+
     <!-- JS Global Compulsory -->
     <script src="assets/dist/js/bootstrap.bundle.min.js"></script>
-  <!-- IE Support -->
-      <script>
-        if (/MSIE \d|Trident.*rv:/.test(navigator.userAgent)) document.write('<script src="assets/vendor/polifills.js"><\/script>');
-      </script>
+    <!-- firebase -->
+    <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase.js"></script>
+    <script>
+      var firebaseConfig = {
+          apiKey: "AIzaSyDU2-mdRegFPE0hj8Fo2ZTQnQSfU6LXrd0",
+          authDomain: "web-eddie.firebaseapp.com",
+          databaseURL: "https://web-eddie.firebaseio.com",
+          storageBucket: "web-eddie.appspot.com",
+        };
+
+        // Initialize Firebase
+
+        firebase.initializeApp(firebaseConfig);
+
+        var bigOne = document.getElementById('bigOne');
+        var dbRef = firebase.database().ref().child('text');
+        dbRef.on('value', snap => bigOne.innerText = snap.val());
+
+    </script>
   </body>
 </html>
